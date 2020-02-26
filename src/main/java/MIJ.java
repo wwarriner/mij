@@ -191,14 +191,27 @@ public class MIJ {
 	}
 
 	/**
-	 * Starts new instance of ImageJ specifying the plugins directory and macros directory.  
+	 * Starts new instance of ImageJ specifying the plugins directory and macros
+	 * directory.
 	 *
-	 * @param IJpath	String that points to the folder containing ij.jar and plugins and macros folder
-	 * @param verbose	indicate the verbose mode
+	 * @param IJpath String that points to the folder containing ij.jar and plugins
+	 *               and macros folder
 	 */
 	public static void start(String IJpath) {
+		start(IJpath, true);
+	}
+
+	/**
+	 * Starts new instance of ImageJ specifying the plugins directory and macros
+	 * directory with or without verbose Mode.
+	 *
+	 * @param IJpath String that points to the folder containing ij.jar and plugins
+	 *               and macros folder
+	 * @param v      indicate the verbose mode
+	 */
+	public static void start(String IJpath, boolean v) {
 		System.setProperty("plugins.dir", IJpath);
-		verbose = true;
+		verbose = v;
 		setupExt(IJpath);
 		launch(null);
 	}
